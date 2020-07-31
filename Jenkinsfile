@@ -1,5 +1,12 @@
-node { 
-    stage('Stage 1') {
-        echo 'Hello World' 
+pipeline {
+    agent {
+        docker { image 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
 }
